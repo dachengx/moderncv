@@ -8,10 +8,13 @@
 
 \documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
-\moderncvcolor{cerulean}                           % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'; for contemporary style use 'cerulean'
+\usepackage{moderncviconsacademic}
+
+\moderncvcolor{orange}                             % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'; for contemporary style use 'cerulean'
 % moderncv themes
-\moderncvstyle[]{contemporary}                     % style options are 'casual' (default), 'classic', 'banking', 'oldstyle', 'fancy' and 'contemporary'
+\moderncvstyle[]{classic}                          % style options are 'casual' (default), 'classic', 'banking', 'oldstyle', 'fancy' and 'contemporary'
                                                    % the 'contemporary' style optionally takes the `qr` (default) or `noqr` options
+\colorlet{firstnamecolor}{lastnamecolor}
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 %\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 
@@ -48,70 +51,72 @@
   \usepackage[T1]{fontenc}
   \usepackage{lmodern}
 \fi
+\newfontfamily\cjkfont{Heiti SC}
 
 % document language
 \usepackage[english]{babel}  % FIXME: using spanish breaks moderncv
 
 % personal data
-\name{John}{Doe}
-\title{Résumé title}                               % optional, remove / comment the line if not wanted
-\born{4 July 1776}                                 % optional, remove / comment the line if not wanted
-\address{street and number}{postcode city}{country}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
-\phone[mobile]{+1~(234)~567~890}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
-\phone[fixed]{+2~(345)~678~901}
-\phone[fax]{+3~(456)~789~012}
-\email{john@doe.org}                               % optional, remove / comment the line if not wanted
-\homepage{www.johndoe.com}                         % optional, remove / comment the line if not wanted
+\name{Dacheng}{Xu}
+\title{{\cjkfont 徐大成}}                             % optional, remove / comment the line if not wanted
+% \born{4 July 1776}                                 % optional, remove / comment the line if not wanted
+% \address{street and number}{postcode city}{country}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+1~(646)~461~0213}                    % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+% \phone[fixed]{+2~(345)~678~901}
+% \phone[fax]{+3~(456)~789~012}
+\email{dacheng.xu@columbia.edu}                      % optional, remove / comment the line if not wanted
+\homepage{dachengx.github.io}                        % optional, remove / comment the line if not wanted
 
 % Social icons
-\social[linkedin]{john.doe}                        % optional, remove / comment the line if not wanted
-\social[xing]{john\_doe}                           % optional, remove / comment the line if not wanted
+\social[linkedin][linkedin.com/in/dacheng-xu-48a05214b]{LinkedIn}              % optional, remove / comment the line if not wanted
+% \social[xing]{john\_doe}                           % optional, remove / comment the line if not wanted
 
-\social[github]{jdoe}                              % optional, remove / comment the line if not wanted
-\social[gitlab]{jdoe}                              % optional, remove / comment the line if not wanted
-\social[codeberg]{jdoe}                            % optional, remove / comment the line if not wanted
-\social[bitbucket]{jdoe}                           % optional, remove / comment the line if not wanted
-\social[stackoverflow]{0000000/johndoe}            % optional, remove / comment the line if not wanted
+\social[github]{dachengx}                            % optional, remove / comment the line if not wanted
+% \social[gitlab]{jdoe}                              % optional, remove / comment the line if not wanted
+% \social[codeberg]{jdoe}                            % optional, remove / comment the line if not wanted
+% \social[bitbucket]{jdoe}                           % optional, remove / comment the line if not wanted
+% \social[stackoverflow]{0000000/johndoe}            % optional, remove / comment the line if not wanted
 
-\social[skype]{jdoe}                               % optional, remove / comment the line if not wanted
-\social[orcid]{0000-0000-000-000}                  % optional, remove / comment the line if not wanted
-\social[researchgate]{jdoe}                        % optional, remove / comment the line if not wanted
-\social[researcherid]{jdoe}                        % optional, remove / comment the line if not wanted
-\social[googlescholar]{googlescholarid}            % optional, remove / comment the line if not wanted
+% \social[skype]{jdoe}                               % optional, remove / comment the line if not wanted
+\social[orcid][orcid.org/0000-0001-7361-9195]{ORCID} % optional, remove / comment the line if not wanted
+% \social[researchgate]{jdoe}                        % optional, remove / comment the line if not wanted
+% \social[researcherid]{jdoe}                        % optional, remove / comment the line if not wanted
+\social[googlescholar][scholar.google.com/citations?user=ZtxKkesAAAAJ]{Google Scholar}  % optional, remove / comment the line if not wanted
 
-\social[twitter]{ji\_doe}                          % optional, remove / comment the line if not wanted
-\social[mastodon]{mastodon.social/web/@user}       % optional, remove / comment the line if not wanted
-\social[telegram]{jdoe}                            % optional, remove / comment the line if not wanted
-\social[whatsapp]{12345678901}                     % optional, remove / comment the line if not wanted
-\social[signal]{12345678901}                       % optional, remove / comment the line if not wanted
-\social[matrix]{@johndoe:matrix.org}               % optional, remove / comment the line if not wanted
-\social[discord]{jdoe\#0000}                       % optional, remove / comment the line if not wanted
+% \social[twitter]{ji\_doe}                          % optional, remove / comment the line if not wanted
+% \social[mastodon]{mastodon.social/web/@user}       % optional, remove / comment the line if not wanted
+% \social[telegram]{jdoe}                            % optional, remove / comment the line if not wanted
+% \social[whatsapp]{12345678901}                     % optional, remove / comment the line if not wanted
+% \social[signal]{12345678901}                       % optional, remove / comment the line if not wanted
+% \social[matrix]{@johndoe:matrix.org}               % optional, remove / comment the line if not wanted
+% \social[discord]{jdoe\#0000}                       % optional, remove / comment the line if not wanted
 
 % YouTube links can take several forms, depending on how your account and channel are set up.
 % See https://support.google.com/youtube/answer/6180214 for more information.
-\social[youtube]{c/jdoeschannel}                   % optional, remove / comment the line if not wanted; Custom URL             - can be shorted by removing 'c/'
-\social[youtube]{channel/XXXXXX}                   % optional, remove / comment the line if not wanted; Channel URL (ID-based) - can not be shortened
-\social[youtube]{user/jdoe}                        % optional, remove / comment the line if not wanted; Legacy username URL    - if jdoe is not already claimed by a Custom URL, can be shortened by removing 'user/'
+% \social[youtube]{c/jdoeschannel}                   % optional, remove / comment the line if not wanted; Custom URL             - can be shorted by removing 'c/'
+% \social[youtube]{channel/XXXXXX}                   % optional, remove / comment the line if not wanted; Channel URL (ID-based) - can not be shortened
+% \social[youtube]{user/jdoe}                        % optional, remove / comment the line if not wanted; Legacy username URL    - if jdoe is not already claimed by a Custom URL, can be shortened by removing 'user/'
 
-\social[twitch]{jdoe}                              % optional, remove / comment the line if not wanted
-\social[tiktok]{jdoe}                              % optional, remove / comment the line if not wanted
-\social[instagram]{jdoe}                           % optional, remove / comment the line if not wanted
+% \social[twitch]{jdoe}                              % optional, remove / comment the line if not wanted
+% \social[tiktok]{jdoe}                              % optional, remove / comment the line if not wanted
+% \social[instagram]{jdoe}                           % optional, remove / comment the line if not wanted
 
-\social[soundcloud]{jdoe}                          % optional, remove / comment the line if not wanted
+% \social[soundcloud]{jdoe}                          % optional, remove / comment the line if not wanted
 
-\social[steam]{jdoe}                               % optional, remove / comment the line if not wanted
-\social[xbox]{jdoe}                                % optional, remove / comment the line if not wanted
-\social[playstation]{jdoe}                         % optional, remove / comment the line if not wanted
-\social[battlenet]{jdoe\#0000}                     % optional, remove / comment the line if not wanted
-\social[arxiv]{doe\_j\_1}                          % optional, remove / comment the line if not wanted
-\social[inspire]{0000000}                          % optional, remove / comment the line if not wanted
-\social[simplex]{0000000}                          % optional, remove / comment the line if not wanted
-\social[threema]{0000000}                          % optional, remove / comment the line if not wanted
+% \social[steam]{jdoe}                               % optional, remove / comment the line if not wanted
+% \social[xbox]{jdoe}                                % optional, remove / comment the line if not wanted
+% \social[playstation]{jdoe}                         % optional, remove / comment the line if not wanted
+% \social[battlenet]{jdoe\#0000}                     % optional, remove / comment the line if not wanted
+\social[arxiv][arxiv.org/a/xu\_d\_2]{arXiv}          % optional, remove / comment the line if not wanted
+\social[inspire][inspirehep.net/authors/1862233]{INSPIRE HEP}  % optional, remove / comment the line if not wanted
+% \social[simplex]{0000000}                          % optional, remove / comment the line if not wanted
+% \social[threema]{0000000}                          % optional, remove / comment the line if not wanted
 
 
-\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
-\photo[64pt][2pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 2pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+% \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+\extrainfo{Last updated: \today}
+\photo[64pt][2pt]{picture}                           % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 2pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+% \quote{Some quote}                                   % optional, remove / comment the line if not wanted
 
 % bibliography adjustments (only useful if you make citations in your resume, or print a list of publications using BibTeX)
 %   to show numerical labels in the bibliography (default is to show no labels)
@@ -132,37 +137,69 @@
 \makecvtitle
 
 \section{Education}  % for 'contemporary' style use optional argument for displaying an icon, e.g. \section[\faGraduationCap]{Education}
-\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 can be left empty
-\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+% \cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 can be left empty
+\cventry{2022--now}{Doctor of Philosophy in Physics}{Columbia University}{}{}{Dissertation: Search for Solar $^8$B and $pp$ Neutrinos with XENONnT \newline Advisor: Elena Aprile}
+\cventry{2018--2022}{Bachelor of Engineering (Major: Engineering Physics)}{Tsinghua University}{}{}{Dissertation: Probing Coherent Elastic Neutrino--Nucleus Scattering from Reactor Neutrinos with LXeTPC and HPGe Detectors \newline Advisor: Fei Gao \& Litao Yang}
 
-\section{Master thesis}
-\cvitem{title}{\emph{Title}}
-\cvitem{supervisors}{Supervisors}
-\cvitem{description}{Short thesis abstract}
+% \section{Master thesis}
+% \cvitem{title}{\emph{Title}}
+% \cvitem{supervisors}{Supervisors}
+% \cvitem{description}{Short thesis abstract}
 
-\section{Experience}
-\subsection{Vocational}
-\cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}
-Detailed achievements:
+\section{Selected Research Experience}
+\subsection{\href{https://xenonexperiment.org/}{XENONnT Dark Matter Project}}
+
+\cventry{2025--now}{Krypton Background Measurement System}{}{}{}{Develop a system to measure Krypton background in xenon at ppq-level sensitivity
 \begin{itemize}
-\item Achievement 1
-\item Achievement 2 (with sub-achievements)
-  \begin{itemize}
-  \item Sub-achievement (a);
-  \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
-    \begin{itemize}
-    \item Sub-sub-achievement i;
-    \item Sub-sub-achievement ii;
-    \item Sub-sub-achievement iii;
-    \end{itemize}
-  \item Sub-achievement (c);
-  \end{itemize}
-\item Achievement 3
-\item Achievement 4
+\item Commission a cold-trap system to isolate Krypton from xenon for residual gas analyzer-based measurement
+\item Improve sensitivity to solar $pp$ neutrinos and heavy WIMP searches
 \end{itemize}}
-\cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2\newline{}Description line 3}
-\subsection{Miscellaneous}
-\cventry{year--year}{Job title}{Employer}{City}{}{Description}
+
+\cventry{2022--2026}{Solar $^8$B CE$\nu$NS and Light Dark Matter Search}{}{}{}{Signal--background modeling and statistical inference for solar neutrino and light dark matter searches
+\begin{itemize}
+\item First indication of solar $^8$B neutrino CE$\nu$NS and light dark matter search in the presence of ``neutrino fog''
+\item Corresponding author of two PRL publications and main contributor to one more
+\end{itemize}}
+
+\cventry{2024--2026}{Analysis Coordinator of XENONnT}{}{}{}{Coordinated analysis efforts with focus on real-data supplyment and analysis software infrastructure
+\begin{itemize}
+\item Coordinated analysis activities across multiple working groups, ensuring efficient communication
+\item Ensured timely delivery and reliability of collaboration-wide analyses
+\end{itemize}}
+
+\cventry{2023--2025}{Convener of Computing and Analysis Tools Group}{}{}{}{Led development of computing and analysis software infrastructure
+\begin{itemize}
+\item Developed and maintained HTC/HPC processing pipeline with 5\,PB IO
+\item Designed a data-reprocessing workflow with improved stability adopted for latest XENONnT analyses
+\end{itemize}}
+
+\cventry{2023--2024}{Toy-MC Inference Framework}{}{}{}{Developed the \href{https://github.com/XENONnT/alea}{open-source statistical inference framework} for toy-MC based confidence interval constructions
+\begin{itemize}
+\item Designed a scalable, modular framework for large-scale toy-MC inference integrated with HPC workflows
+\item Adopted by multiple analyses\,(heavy WIMP, solar $^8$B and $pp$ neutrino, etc.) and external collaborations
+\end{itemize}}
+
+\cventry{2022--2023}{GPU-based LXe Response Simulation and Inference}{}{}{}{Developed a \href{https://github.com/XENONnT/appletree}{open-source simulation and Bayesian inference framework} for liquid xenon detector response
+\begin{itemize}
+\item Rewrote CUDA\,(C++) framework into JAX\,(python) for improved usability and maintainability
+\item Enabled Bayesian inference with MCMC, widely used in dark matter and neutrino analyses in XENONnT
+\end{itemize}}
+
+\subsection{\href{http://jinping.hep.tsinghua.edu.cn/}{Jinping Neutrino Experiment\,(JNE)}}
+
+\cventry{2019--2021}{PMT Waveform Analysis for Neutrino Detection}{}{}{}{Developed waveform analysis methods to reconstruct photon timing and charge for MeV-neutrino measurements
+\begin{itemize}
+\item Improved time and charge resolution, enabling robust downstream analyses
+\item Applied statistical learning methods to enhance charge resolution in low-occupancy regimes
+\end{itemize}}
+
+\subsection{\href{https://grid.tsinghua.edu.cn/site/}{Gamma-Ray Integrated Detectors\,(GRID)}}
+
+\cventry{2018--2022}{CubeSat Gamma-ray Transient Events Analysis}{}{}{}{Developed data processing pipeline for CubeSat-based gamma-ray bursts\,(GRBs) monitoring
+\begin{itemize}
+\item Enabled detection of over 40 GRBs as of 2025
+\item Built simulation framework for light curve and localization algorithm development
+\end{itemize}}
 
 \section{Languages}
 \cvitemwithcomment{Language 1}{Skill level}{Comment}
