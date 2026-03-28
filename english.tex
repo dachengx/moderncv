@@ -19,8 +19,8 @@
 %\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 
 % adjust the page margins
-\usepackage[hmargin=0.5in,vmargin=10pt]{geometry}                  % the 'contemporary' style looks better with reduced margins; uncomment the line below for increased margin
-%\usepackage[scale=0.75]{geometry}
+% \usepackage[hmargin=0.5in,vmargin=10pt]{geometry}                  % the 'contemporary' style looks better with reduced margins; uncomment the line below for increased margin
+\usepackage[scale=0.8]{geometry}
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 %\setlength{\listitemsymbolspace}{10pt}            % set custom spacing between list symbol and text item (influences \cvlistitem and \cvlistdoubleitem)
@@ -138,8 +138,8 @@
 
 \section{Education}  % for 'contemporary' style use optional argument for displaying an icon, e.g. \section[\faGraduationCap]{Education}
 % \cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 can be left empty
-\cventry{2022--now}{Doctor of Philosophy in Physics}{Columbia University}{}{}{Dissertation: Search for Solar $^8$B and $pp$ Neutrinos with XENONnT \newline Advisor: Elena Aprile}
-\cventry{2018--2022}{Bachelor of Engineering (Major: Engineering Physics)}{Tsinghua University}{}{}{Dissertation: Probing Coherent Elastic Neutrino--Nucleus Scattering from Reactor Neutrinos with LXeTPC and HPGe Detectors \newline Advisor: Fei Gao \& Litao Yang}
+\cventry{2022--now}{Doctor of Philosophy in Physics}{Columbia University}{}{}{Dissertation: Search for Solar $^8$B and $pp$ Neutrinos with XENONnT \newline Advisor: Prof. Elena Aprile}
+\cventry{2018--2022}{Bachelor of Engineering (Major: Engineering Physics)}{Tsinghua University}{}{}{Dissertation: Probing Coherent Elastic Neutrino--Nucleus Scattering from Reactor Neutrinos with LXeTPC and HPGe Detectors \newline Advisor: Prof. Fei Gao \& Prof. Litao Yang}
 
 % \section{Master thesis}
 % \cvitem{title}{\emph{Title}}
@@ -173,13 +173,13 @@
 \item Designed a data-reprocessing workflow with improved stability adopted for latest XENONnT analyses
 \end{itemize}}
 
-\cventry{2023--2024}{Toy-MC Inference Framework}{}{}{}{Developed the \href{https://github.com/XENONnT/alea}{open-source statistical inference framework} for toy-MC based confidence interval constructions
+\cventry{2023--2024}{Toy-MC Inference Framework}{}{}{}{Developed the \href{https://github.com/XENONnT/alea/}{open-source statistical inference framework} for toy-MC based confidence interval constructions
 \begin{itemize}
 \item Designed a scalable, modular framework for large-scale toy-MC inference integrated with HPC workflows
 \item Adopted by multiple analyses\,(heavy WIMP, solar $^8$B and $pp$ neutrino, etc.) and external collaborations
 \end{itemize}}
 
-\cventry{2022--2023}{GPU-based LXe Response Simulation and Inference}{}{}{}{Developed a \href{https://github.com/XENONnT/appletree}{open-source simulation and Bayesian inference framework} for liquid xenon detector response
+\cventry{2022--2023}{GPU-based LXe Response Simulation and Inference}{}{}{}{Developed a \href{https://github.com/XENONnT/appletree/}{open-source simulation and Bayesian inference framework} for liquid xenon detector response
 \begin{itemize}
 \item Rewrote CUDA\,(C++) framework into JAX\,(python) for improved usability and maintainability
 \item Enabled Bayesian inference with MCMC, widely used in dark matter and neutrino analyses in XENONnT
@@ -202,10 +202,44 @@
 \end{itemize}}
 
 \section{Selected Honors and Awards}
-\cventry{2022.03}{Grand Prize of the 17th ``Challenge Cup'' Competition}{Ministry of Education}{}{}{Student Extracurricular Academic and Technological Works Competition \newline Project: GRID-02 satellite payload calibration and scientific results}
+\cventry{2022.03}{Grand Prize of the 17th ``Challenge Cup'' Competition}{Ministry of Education, etc.}{}{}{Student Extracurricular Academic and Technological Works Competition \newline Project: GRID-02 satellite payload calibration and scientific results}
 \cventry{2021.12 and 2019.12}{Dongchang He Prize}{Tsinghua University}{}{}{Highest award for undergraduate of the Department of Engineering Physics, achieved twice}
 \cventry{2020.12}{NAOC Fellowship}{National Astronomy Observatory of China, Chinese Academy of Sciences}{}{}{Three winners per year in Tsinghua University, for students in the field of astronomy nationwide}
 \cventry{2020.12}{BOEING Scholarship}{Tsinghua University}{}{}{Excellent Comprehensive Scholarship of Tsinghua University}
+
+\section{Talks}
+
+\subsection{Conferences}
+\cventry{2025.06}{Talk: \href{https://indico.cern.ch/event/1458241/contributions/6477846/}{A measurement of the Solar Boron-8 Neutrino Fog with XENONnT}}{Rio de Janeiro, Brazil}{}{}{\href{https://indico.cern.ch/event/1458241/}{Magnificent CEvNS 2025}}
+\cventry{2025.06}{Talk: \href{https://agenda.hep.wisc.edu/event/2297/contributions/34438/}{Data processing in XENONnT dark matter project}}{Madison, Wisconsin (online)}{}{}{\href{https://agenda.hep.wisc.edu/event/2297/}{Throughput Computing 2025}}
+\cventry{2024.10}{Talk: \href{https://indico.cern.ch/event/1335188/contributions/6177631/}{First Measurement of Solar $^8$B Neutrinos via Coherent Elastic Neutrino-Nucleus Scattering with XENONnT}}{Blois, France}{}{}{\href{https://indico.cern.ch/event/1335188/}{Blois 2024: 35th Rencontres de Blois on "Particle Physics and Cosmology"}}
+\cventry{2024.07}{Talk: \href{https://indico.ihep.ac.cn/event/21331/contributions/161652/}{Search for Coherent Elastic Scattering of Solar $^8$B Neutrinos in the XENONnT}}{Shandong University, China}{}{}{\href{https://indico.ihep.ac.cn/event/21331/}{The 14th Conference of High Energy Physics Branch of Chinese Physical Society}}
+\cventry{2021.08}{Poster: \href{https://indico.ihep.ac.cn/event/10906/session/9/contribution/172}{Accurate and Robust PMT Waveform Analysis}}{Shandong University, China (online)}{}{}{\href{https://indico.ihep.ac.cn/event/10906/}{The 13th Conference of High Energy Physics Branch of Chinese Physical Society}}
+\cventry{2021.06}{Poster: \href{https://indico.fnal.gov/event/44492/contributions/214287/}{Optimized PMT Waveform Analysis}}{The University of Minnesota, US (online)}{}{}{\href{https://indico.fnal.gov/event/44492/overview/}{The 28th International Workshop on Weak Interactions and Neutrinos (WIN2021)}}
+\cventry{2020.08}{Talk: \href{https://indico.physics.lbl.gov/event/1192/contributions/4960/}{PMT waveform analysis in neutrino experiments}}{Lawrence Berkeley National Laboratory, US (online)}{}{}{\href{https://indico.physics.lbl.gov/event/1192/overview/}{Dark-matter and Neutrino Computation Explored (DANCE) Machine Learning Workshop 2020}}
+
+\subsection{Seminars}
+\cventry{2025.04}{\href{https://indico.slac.stanford.edu/event/9699/}{Venturing into the Neutrino Fog with XENONnT}}{SLAC National Accelerator Laboratory, California}{}{}{}
+\cventry{2024.09}{\href{https://indico.cern.ch/event/1459520/}{A measurement of solar neutrino with XENONnT experiment}}{Stony Brook University, New York}{}{}{}
+\cventry{2024.09}{\href{https://indico.bnl.gov/event/24531/}{First Measurement of Solar $^8$B Neutrinos via Coherent Elastic Neutrino-Nucleus Scattering with XENONnT}}{Brookhaven National Laboratory, New York}{}{Particle Physics Seminars at BNL}{}
+
+\section{Mentoring}
+\cventry{2025}{Khushi Vandra}{Columbia University}{}{NSF Research Experiences for Undergraduates (REU)}{S1 pulse shape discrimination in liquid xenon detectors}
+
+\section{Teaching}
+\cventry{2024}{Lecturer for XENONnT Computing Tutorial Series}{Online}{}{}{Biweekly tutorial sessions on HTC/HPC computing in XENONnT context}
+\cventry{2022--2025}{Teaching Assistant}{Columbia University}{Six Semesters}{}{Intermediate Laboratory Work \newline Weekly lab sessions at E. K. A. advanced physics lab, covering topics in optics, quantum and particle physics}
+
+\section{Internships}
+\cventry{2021}{Undergraduate Researcher}{Columbia University}{Summer Undergraduate Research}{}{Data analysis on the XENON detector, including and several signal selection criteria \newline Supervisor: Prof. Elena Aprile}
+
+\section{Outreach Activities}
+\cventry{2021--now}{Open-source Projects Maintainer}{Columbia University}{}{}{Promoted open and accessible use of XENONnT analysis tools across collaborations}
+
+\section{References}
+\cventry{}{Elena Aprile}{Centennial Professor of Physics}{Columbia University}{}{Ph.D. advisor \& XENON Spokesperson, Email: \emaillink{age@astro.columbia.edu}}
+\cventry{}{Fei Gao}{Associate Professor of Physics}{Tsinghua University}{}{B.Eng. advisor, Email: \emaillink{feigao@mail.tsinghua.edu.cn}}
+
 
 \section{Languages}
 \cvitemwithcomment{Language 1}{Skill level}{Comment}
