@@ -10,7 +10,7 @@
 
 \usepackage{moderncviconsacademic}
 
-\moderncvcolor{orange}                             % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'; for contemporary style use 'cerulean'
+\moderncvcolor{purple}                             % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'; for contemporary style use 'cerulean'
 % moderncv themes
 \moderncvstyle[]{classic}                          % style options are 'casual' (default), 'classic', 'banking', 'oldstyle', 'fancy' and 'contemporary'
                                                    % the 'contemporary' style optionally takes the `qr` (default) or `noqr` options
@@ -51,14 +51,14 @@
   \usepackage[T1]{fontenc}
   \usepackage{lmodern}
 \fi
-\newfontfamily\cjkfont{Heiti SC}
+\newfontfamily\cjkfont{FandolKai-Regular.otf}
 
 % document language
 \usepackage[english]{babel}  % FIXME: using spanish breaks moderncv
 
 % personal data
 \name{Dacheng}{Xu}
-\title{{\cjkfont 徐大成}}                             % optional, remove / comment the line if not wanted
+\title{\cjkfont 徐 大 成}                             % optional, remove / comment the line if not wanted
 % \born{4 July 1776}                                 % optional, remove / comment the line if not wanted
 % \address{street and number}{postcode city}{country}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
 \phone[mobile]{+1~(646)~461~0213}                    % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
@@ -115,8 +115,8 @@
 
 % \extrainfo{additional information}                 % optional, remove / comment the line if not wanted
 \extrainfo{Last updated: \today}
-\photo[64pt][2pt]{picture}                           % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 2pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-% \quote{Some quote}                                   % optional, remove / comment the line if not wanted
+% \photo[64pt][2pt]{picture}                         % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 2pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+% \quote{Some quote}                                 % optional, remove / comment the line if not wanted
 
 % bibliography adjustments (only useful if you make citations in your resume, or print a list of publications using BibTeX)
 %   to show numerical labels in the bibliography (default is to show no labels)
@@ -240,99 +240,17 @@
 \cventry{}{Elena Aprile}{Centennial Professor of Physics}{Columbia University}{}{Ph.D. advisor \& XENON Spokesperson, Email: \emaillink{age@astro.columbia.edu}}
 \cventry{}{Fei Gao}{Associate Professor of Physics}{Tsinghua University}{}{B.Eng. advisor, Email: \emaillink{feigao@mail.tsinghua.edu.cn}}
 
-
-\section{Languages}
-\cvitemwithcomment{Language 1}{Skill level}{Comment}
-\cvitemwithcomment{Language 2}{Skill level}{Comment}
-\cvitemwithcomment{Language 3}{Skill level}{Comment}
-\cvitemwithcomment{Language 4}{Skill level}{Comment}
-
-\section{Computer skills}
-\cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
-\cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
-\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
-\cvtripleitem{category 4}{XYZ}{category 5}{XYZ}{category 6}{XYZ}
-
-\section{Skill matrix}
-\cvitem{Skill matrix}{Alternatively, provide a skill matrix to show off your skills}
-%% Skill matrix as an alternative to rate one's skills, computer or other.
-
-%% Adjusts width of skill matrix columns.
-%% Usage \setcvskillcolumns[<width>][<factor>][<exp_width>]
-%% <width>, <exp_width> should be lengths smaller than \textwidth, <factor> needs to be between 0 and 1.
-%% Examples:
-% \setcvskillcolumns[5em][][]%    adjust first column. Same as \setcvskillcolumns[5em]
-% \setcvskillcolumns[][0.45][]%   adjust third (skill) column. Same as \setcvskillcolumns[][0.45]
-% \setcvskillcolumns[][][\widthof{``Year''}]%     adjust fourth (years) column.
-% \setcvskillcolumns[][0.45][\widthof{``Year''}]%
-% \setcvskillcolumns[\widthof{``Languag''}][0.48][]
-% \setcvskillcolumns[\widthof{``Languag''}]%
-
-%% Adjusts width of legend columns. Usage \setcvskilllegendcolumns[<width>][<factor>]
-%% <factor> needs to be between 0 and 1. <width> should be a length smaller than \textwidth
-%% Examples:
-% \setcvskilllegendcolumns[][0.45]
-% \setcvskilllegendcolumns[\widthof{``Legend''}][0.45]
-% \setcvskilllegendcolumns[0ex][0.46]% this is useful for the banking style
-
-%% Add a legend if you are using \cvskill{<1-5>} command or \cvskillentry
-%% Usage \cvskilllegend[*][<post_padding>][<first_level>][<second_level>][<third_level>][<fourth_level>][<fifth_level>]{<name>}
-% \cvskilllegend % insert default legend without lines
-\cvskilllegend*[1em]{}% adjust post spacing
-% \cvskilllegend*{Legend}%  Alternatively add a description string
-%% adjust the legend entries for other languages, here German
-% \cvskilllegend[0.2em][Grundkenntnisse][Grundkenntnisse und eigene Erfahrung in Projekten][Umfangreiche Erfahrung in Projekten][Vertiefte Expertenkenntnisse][Experte\,/\,Spezialist]{Legende}
-
-%% Alternative legend style with the first three skill levels in one column
-%% Usage \cvskillplainlegend[*][<post_padding>][<first_level>][<second_level>][<third_level>][<fourth_level>][<fifth_level>]{<name>}
-% \setcvskilllegendcolumns[][0.6]%  works for classic, casual, banking
-% \setcvskilllegendcolumns[][0.55]%  works better for oldstyle and fancy
-% \cvskillplainlegend{}
-% \cvskillplainlegend[0.2em][Grundkenntnisse][Grundkenntnisse und eigene Erfahrung in Projekten][Umfangreiche Erfahrung in Projekten][Vertiefte Expertenkenntnisse][Experte/Guru]{Legende}
-
-%% Add a head of the skill matrix table with descriptions.
-%% Usage \cvskillhead[<post_padding>][<Level>][<Skill>][<Years>][<Comment>]%
-\cvskillhead[-0.1em]%   this inserts the standard legend in english and adjust padding
-%% Adjust head of the skill matrix for other languages
-% \cvskillhead[0.25em][Level][F\"ahigkeit][Jahre][Bemerkung]
-
-%% \cvskillentry[*][<post_padding>]{<skill_cathegory>}{<0-5>}{<skill_name>}{<years_of_experience>}{<comment>}%
-%% Example usages:
-\cvskillentry*{Language:}{3}{Python}{2}{I'm so experienced in Python and have realised a million projects. At least.}
-\cvskillentry{}{2}{Lilypond}{14}{So much sheet music! Man, I'm the best!}
-\cvskillentry{}{3}{\LaTeX}{14}{Clearly I rock at \LaTeX}
-\cvskillentry*{OS:}{3}{Linux}{2}{I only use Archlinux btw}% notice the use of the starred command and the optional
-\cvskillentry*[1em]{Methods}{4}{SCRUM}{8}{SCRUM master for 5 years}
-%% \cvskill{<0-5>} command
-% \cvitem{\textbackslash{cvskill}:}{Skills can be visually expressed by the \textbackslash{cvskill} command, e.g. \cvskill{2}}
-
-\section{Interests}
-\cvitem{hobby 1}{Description}
-\cvitem{hobby 2}{Description}
-\cvitem{hobby 3}{Description}
-
-\section{Extra 1}
-\cvlistitem{Item 1}
-\cvlistitem{Item 2}
-\cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
-
-\section{Extra 2}
-\cvlistdoubleitem{Item 1}{Item 4}
-\cvlistdoubleitem{Item 2}{Item 5\cite{book2}}
-\cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
-
-\section{References}
-\begin{cvcolumns}
-  \cvcolumn{Category 1}{\begin{itemize}\item Person 1\item Person 2\item Person 3\end{itemize}}
-  \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
-  \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
-\end{cvcolumns}
+\clearpage
 
 % Publications from a BibTeX file without multibib
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
 %  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\renewcommand{\refname}{Selected Publications}
 \nocite{*}
-\bibliographystyle{plain}
+\begin{center}
+\Large{For a complete publications list, please refer to my \href{https://inspirehep.net/authors/1862233}{INSPIRE profile}.}
+\end{center}
+\bibliographystyle{unsrt}
 \bibliography{publications}                        % 'publications' is the name of a BibTeX file
 
 % Publications from a BibTeX file using the multibib package
@@ -344,32 +262,4 @@
 %\bibliographystylemisc{plain}
 %\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
 
-\clearpage
-%-----       letter       ---------------------------------------------------------
-% recipient data
-\recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
-\date{January 01, 1984}
-\subject{Job application}
-\opening{Dear Sir or Madam,}
-\closing{Yours faithfully,}
-\signature{0.9}{signature.png}                     % optional, remove / comment the line if not wanted: first argument goes to \includegraphics > scale
-\enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
-\makelettertitle
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
-
-Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum various nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus various blandit.
-
-Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim various pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
-
-Albert Einstein discovered that $e=mc^2$ in 1905.
-
-\[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
-
-\makeletterclosing
-
-%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
 \end{document}
-
-
-%% end of file `template.tex'.
