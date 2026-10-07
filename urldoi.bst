@@ -253,6 +253,15 @@ FUNCTION {format.title}
   if$
 }
 
+FUNCTION {format.preprint}
+{ eprint empty$
+    { journal }
+    { "\href{https://arxiv.org/abs/" eprint *
+      "}{arXiv:" * eprint * "}" *
+    }
+  if$
+}
+
 FUNCTION {n.dashify}
 { 't :=
   ""
@@ -599,12 +608,20 @@ FUNCTION {format.pub.labels}
 % This runs after fin.entry, so annotations do not change citation punctuation.
 % Start the group before the citation paragraph ends to keep both paragraphs intact.
 FUNCTION {output.pub.annotation}
-{ annotation empty$
+{ selected empty$
     'skip$
-    { "\begingroup\interlinepenalty10000\par\nobreak\vspace{0.15em}\normalfont\small\noindent\textit{Main contribution:}\space " write$
-      annotation write$
-      "\par\endgroup" write$
-      newline$
+    { selected "true" =
+        { annotation empty$
+            'skip$
+            { "\begingroup\interlinepenalty10000\par\nobreak\vspace{0.15em}\normalfont\small\noindent\textit{Main contribution:}\space " write$
+              annotation write$
+              "\par\endgroup" write$
+              newline$
+            }
+          if$
+        }
+        'skip$
+      if$
     }
   if$
 }
@@ -616,9 +633,15 @@ FUNCTION {article}
   format.title "title" output.check
   new.block
   crossref missing$
-    { journal emphasize "journal" output.check
-      format.vol.num.pages output
-      format.date "year" output.check
+    { journal field.or.null "l" change.case$ "preprint" =
+        { format.preprint output
+          year "year" output.check
+        }
+        { journal emphasize "journal" output.check
+          format.vol.num.pages output
+          format.date "year" output.check
+        }
+      if$
     }
     { format.article.crossref output.nonnull
       format.pages output

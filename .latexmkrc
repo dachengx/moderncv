@@ -13,12 +13,17 @@ my $cv_source = $ENV{CV_PUBLICATIONS_SOURCE}
                           'Proposals', 'Publication_List', 'bibliography.bib');
 $cv_source = File::Spec->rel2abs($cv_source, $cv_dir);
 my $cv_output = File::Spec->catfile($cv_dir, 'publications.bib');
+my $cv_other_output = File::Spec->catfile($cv_dir, 'publications-other.bib');
 my $cv_python = $ENV{CV_PUBLICATIONS_PYTHON} || 'python3';
 
 my $cv_sync = sub {
     system { $cv_python } $cv_python, $cv_script,
         '--source', $cv_source, '--output', $cv_output;
     die "Publication synchronization failed; CV compilation stopped.\n" if $?;
+    system { $cv_python } $cv_python, $cv_script,
+        '--source', $cv_source, '--output', $cv_other_output,
+        '--selection', 'other';
+    die "Other publication synchronization failed; CV compilation stopped.\n" if $?;
 };
 
 # Explicit template builds remain independent of the external publication repo.

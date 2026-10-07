@@ -50,9 +50,22 @@ The English CV uses one maintained publication database:
 `../postdoc_application/Proposals/Publication_List/bibliography.bib`.
 Set `selected = {true}` on each paper that should appear in the CV and in the
 selected-publications group of the standalone publication list. The same field
-controls both lists. CV papers keep the order of the shared database.
+controls both lists. Papers within each group keep the order of the shared database.
 
-`publications.bib` is generated. Edit publication details, contribution roles,
+Near the top of `english.tex`, set the publication switch:
+
+```latex
+\fullpublicationsfalse % Selected Publications only (default)
+% \fullpublicationstrue % Selected Publications followed by Other Publications
+```
+
+Use one of these settings at a time. Selected Publications always appears; the
+switch only controls whether Other Publications is added. Full mode includes
+every paper in the shared database, including preprints, and numbers each group
+from 1. Contribution annotations appear only for selected papers. Both publication
+headings use the same section style as the rest of the CV.
+
+`publications.bib` and `publications-other.bib` are generated. Edit publication details, contribution roles,
 annotations, distinctions, and highlight links in the shared database only.
 The exporter keeps every field and the CV's `urldoi.bst` renders the metadata.
 
@@ -62,7 +75,7 @@ From this directory, build the English CV as usual:
 latexmk --lualatex english.tex
 ```
 
-The local `.latexmkrc` refreshes the bibliography before checking whether the CV
+The local `.latexmkrc` refreshes both bibliography files before checking whether the CV
 is up to date. It also tracks the shared database and exporter during `-pvc` runs.
 A missing or invalid database stops the CV build with an error.
 The example documents do not require the external database.
@@ -83,8 +96,10 @@ You can also refresh or check the generated file directly:
 ```sh
 python3 scripts/sync_publications.py
 python3 scripts/sync_publications.py --check
+python3 scripts/sync_publications.py --selection other --output publications-other.bib
 ```
 
-The exporter accepts `--source` and `--output` for explicit paths. `--check` never
+The exporter accepts `--source` and `--output` for explicit paths, and
+`--selection selected|other` to choose the group (selected by default). `--check` never
 writes files and exits with status 1 when the generated bibliography is out of date.
 Normal export leaves the file untouched when its contents are already correct.

@@ -10,6 +10,15 @@
 
 \documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
+% Selected Publications always appears; this switch adds Other Publications.
+\newif\iffullpublications
+% \fullpublicationsfalse
+\fullpublicationstrue
+\iffullpublications
+  \usepackage[resetlabels]{multibib}
+  \newcites{cvother}{Other Publications}
+\fi
+
 \usepackage{moderncviconsacademic}
 
 \moderncvcolor{purple}                             % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'; for contemporary style use 'cerulean'
@@ -210,19 +219,49 @@
 \cventry{2020.12}{NAOC Fellowship}{National Astronomy Observatory of China, Chinese Academy of Sciences}{}{}{Three winners per year in Tsinghua University, for students in the field of astronomy nationwide}
 \cventry{2020.12}{BOEING Scholarship}{Tsinghua University}{}{}{Excellent Comprehensive Scholarship of Tsinghua University}
 
-\section{Talks}
+\section{Teaching}
+\cventry{2024}{Lecturer for XENONnT Computing Tutorial Series}{Online}{}{}{Delivered biweekly tutorials on HTC/HPC workflows and analysis computing for XENONnT researchers}
+\cventry{2022--2025}{Teaching Assistant}{Columbia University}{Six Semesters}{}{Intermediate Laboratory Work \newline Weekly lab sessions at E. K. A. advanced physics lab, covering topics in optics, quantum and particle physics}
 
-\subsection{Conferences}
-\cventry{2026.07}{Talk: \href{https://plan.events.mpg.de/event/603/contributions/3478/}{Probing the Solar Boron-8 Neutrino Fog with XENONnT}}{Max-Planck-Institut für Kernphysik, Heidelberg, Germany}{}{}{\href{https://plan.events.mpg.de/event/603/}{Magnificent CEvNS 2026}}
-\cventry{2026.06}{Poster: \href{https://indico.global/event/15740/contributions/147299/}{Measurement of Solar $^8$B Neutrino CE$\nu$NS with XENONnT}}{University of California, Irvine, Irvine, US}{}{}{\href{https://indico.global/event/15740/}{Neutrino 2026: XXXII International Conference on Neutrino Physics and Astrophysics}}
-\cventry{2026.05}{Poster (People's Choice Award): \href{https://indico.triumf.ca/event/803/contributions/7791/}{XTRACT: The Measurement of Krypton in Xenon with ppq Sensitivity} (\href{https://drive.google.com/file/d/1CUJ9V1KH2EIVcP8ZYRxFym2z8XzPbtcJ/view?usp=drive_link}{public PDF})}{TRIUMF, Vancouver, Canada}{}{}{\href{https://indico.triumf.ca/event/803/}{XeSAT 2026 - International Workshop on Applications of Noble Gas Xenon to Science and Technology}}
-\cventry{2025.06}{Talk: \href{https://indico.cern.ch/event/1458241/contributions/6477846/}{A measurement of the Solar Boron-8 Neutrino Fog with XENONnT}}{Centro Brasileiro de Pesquisas Físicas, Rio de Janeiro, Brazil (online)}{}{}{\href{https://indico.cern.ch/event/1458241/}{Magnificent CEvNS 2025}}
-\cventry{2025.06}{Talk: \href{https://agenda.hep.wisc.edu/event/2297/contributions/34438/}{Data processing in XENONnT dark matter project}}{University of Wisconsin-Madison, Madison, US (online)}{}{}{\href{https://agenda.hep.wisc.edu/event/2297/}{Throughput Computing 2025}}
-\cventry{2024.10}{Talk: \href{https://indico.cern.ch/event/1335188/contributions/6177631/}{First Measurement of Solar $^8$B Neutrinos via Coherent Elastic Neutrino-Nucleus Scattering with XENONnT}}{Blois, France}{}{}{\href{https://indico.cern.ch/event/1335188/}{Blois 2024: 35th Rencontres de Blois on "Particle Physics and Cosmology"}}
-\cventry{2024.07}{Talk: \href{https://indico.ihep.ac.cn/event/21331/contributions/161652/}{Search for Coherent Elastic Scattering of Solar $^8$B Neutrinos in the XENONnT}}{Shandong University, Qingdao, China}{}{}{\href{https://indico.ihep.ac.cn/event/21331/}{The 14th Conference of High Energy Physics Branch of Chinese Physical Society}}
-\cventry{2021.08}{Poster: \href{https://indico.ihep.ac.cn/event/10906/session/9/contribution/172/}{Accurate and Robust PMT Waveform Analysis}}{Shandong University, Qingdao, China (online)}{}{}{\href{https://indico.ihep.ac.cn/event/10906/}{The 13th Conference of High Energy Physics Branch of Chinese Physical Society}}
-\cventry{2021.06}{Poster: \href{https://indico.fnal.gov/event/44492/contributions/214287/}{Optimized PMT Waveform Analysis}}{University of Minnesota Twin Cities, Minneapolis, US (online)}{}{}{\href{https://indico.fnal.gov/event/44492/overview/}{The 28th International Workshop on Weak Interactions and Neutrinos (WIN2021)}}
-\cventry{2020.08}{Talk: \href{https://indico.physics.lbl.gov/event/1192/contributions/4960/}{PMT waveform analysis in neutrino experiments}}{Lawrence Berkeley National Laboratory, Berkeley, US (online)}{}{}{\href{https://indico.physics.lbl.gov/event/1192/overview/}{Dark-matter and Neutrino Computation Explored (DANCE) Machine Learning Workshop 2020}}
+\section{Mentoring}
+\cventry{2025}{Khushi Vandra}{Columbia University}{}{NSF Research Experiences for Undergraduates (REU)}{S1 pulse shape discrimination in liquid xenon detectors}
+
+\section{Internships}
+\cventry{2024.07 \& 2026.01 \& 2026.07}{Visiting Researcher}{Laboratori Nazionali del Gran Sasso}{Assergi, Italy}{}{Operation and calibration shifts for XENONnT}
+\cventry{2021}{Undergraduate Researcher}{Columbia University}{}{Summer Undergraduate Research}{Data analysis on the XENON detector, including several signal selection criteria \newline Supervisor: Prof. Elena Aprile}
+
+\section{Professional Services}
+\cventry{2024--now}{Journal Referee}{}{}{}{Journal of Instrumentation, Physical Review Applied}
+
+\section{Outreach Activities}
+\cventry{2021--2026}{Open-source Projects Maintainer}{Columbia University}{}{}{Maintained open-source analysis tools, including appletree and alea, and supported their use across collaborations; appointed as a straxen maintainer in 2025}
+
+% \clearpage
+% Selected Publications is always included; Other Publications is optional.
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\renewcommand{\refname}{Selected Publications}
+\nocite{*}
+% Keep publication headings at the same level as the other CV sections.
+\renewcommand*{\bibliographyhead}[1]{\section{#1}}
+\bibliographystyle{urldoi}
+\bibliography{publications}                        % Generated from the shared bibliography; do not edit publications.bib.
+\iffullpublications
+  \nocitecvother{*}
+  \bibliographystylecvother{urldoi}
+  \bibliographycvother{publications-other}
+\fi
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+\section{Talks}
 
 \subsection{Seminars}
 \cventry{2026.09}{\href{https://web.mit.edu/lns/news/lunchtime.html}{Venturing Into the Neutrino Fog: Solar Boron-8 Neutrinos and Light Dark Matter with XENONnT}}{Massachusetts Institute of Technology, Cambridge, US}{}{Laboratory for Nuclear Science~(LNS) Lunchtime Seminars at MIT}{}
@@ -236,26 +275,21 @@
 \cventry{2024.09}{\href{https://indico.cern.ch/event/1459520/}{A measurement of solar neutrino with XENONnT experiment}}{Stony Brook University, Stony Brook, US}{}{}{}
 \cventry{2024.09}{\href{https://indico.bnl.gov/event/24531/}{First Measurement of Solar $^8$B Neutrinos via Coherent Elastic Neutrino-Nucleus Scattering with XENONnT}}{Brookhaven National Laboratory, Upton, US}{}{Particle Physics Seminars at BNL}{}
 
+\subsection{Conferences}
+\cventry{2026.07}{Talk: \href{https://plan.events.mpg.de/event/603/contributions/3478/}{Probing the Solar Boron-8 Neutrino Fog with XENONnT}}{Max-Planck-Institut für Kernphysik, Heidelberg, Germany}{}{}{\href{https://plan.events.mpg.de/event/603/}{Magnificent CEvNS 2026}}
+\cventry{2026.06}{Poster: \href{https://indico.global/event/15740/contributions/147299/}{Measurement of Solar $^8$B Neutrino CE$\nu$NS with XENONnT}}{University of California, Irvine, Irvine, US}{}{}{\href{https://indico.global/event/15740/}{Neutrino 2026: XXXII International Conference on Neutrino Physics and Astrophysics}}
+\cventry{2026.05}{Poster (People's Choice Award): \href{https://indico.triumf.ca/event/803/contributions/7791/}{XTRACT: The Measurement of Krypton in Xenon with ppq Sensitivity} (\href{https://drive.google.com/file/d/1CUJ9V1KH2EIVcP8ZYRxFym2z8XzPbtcJ/view?usp=drive_link}{public PDF})}{TRIUMF, Vancouver, Canada}{}{}{\href{https://indico.triumf.ca/event/803/}{XeSAT 2026 - International Workshop on Applications of Noble Gas Xenon to Science and Technology}}
+\cventry{2025.06}{Talk: \href{https://indico.cern.ch/event/1458241/contributions/6477846/}{A measurement of the Solar Boron-8 Neutrino Fog with XENONnT}}{Centro Brasileiro de Pesquisas Físicas, Rio de Janeiro, Brazil (online)}{}{}{\href{https://indico.cern.ch/event/1458241/}{Magnificent CEvNS 2025}}
+\cventry{2025.06}{Talk: \href{https://agenda.hep.wisc.edu/event/2297/contributions/34438/}{Data processing in XENONnT dark matter project}}{University of Wisconsin-Madison, Madison, US (online)}{}{}{\href{https://agenda.hep.wisc.edu/event/2297/}{Throughput Computing 2025}}
+\cventry{2024.10}{Talk: \href{https://indico.cern.ch/event/1335188/contributions/6177631/}{First Measurement of Solar $^8$B Neutrinos via Coherent Elastic Neutrino-Nucleus Scattering with XENONnT}}{Blois, France}{}{}{\href{https://indico.cern.ch/event/1335188/}{Blois 2024: 35th Rencontres de Blois on "Particle Physics and Cosmology"}}
+\cventry{2024.07}{Talk: \href{https://indico.ihep.ac.cn/event/21331/contributions/161652/}{Search for Coherent Elastic Scattering of Solar $^8$B Neutrinos in the XENONnT}}{Shandong University, Qingdao, China}{}{}{\href{https://indico.ihep.ac.cn/event/21331/}{The 14th Conference of High Energy Physics Branch of Chinese Physical Society}}
+\cventry{2021.08}{Poster: \href{https://indico.ihep.ac.cn/event/10906/session/9/contribution/172/}{Accurate and Robust PMT Waveform Analysis}}{Shandong University, Qingdao, China (online)}{}{}{\href{https://indico.ihep.ac.cn/event/10906/}{The 13th Conference of High Energy Physics Branch of Chinese Physical Society}}
+\cventry{2021.06}{Poster: \href{https://indico.fnal.gov/event/44492/contributions/214287/}{Optimized PMT Waveform Analysis}}{University of Minnesota Twin Cities, Minneapolis, US (online)}{}{}{\href{https://indico.fnal.gov/event/44492/overview/}{The 28th International Workshop on Weak Interactions and Neutrinos (WIN2021)}}
+\cventry{2020.08}{Talk: \href{https://indico.physics.lbl.gov/event/1192/contributions/4960/}{PMT waveform analysis in neutrino experiments}}{Lawrence Berkeley National Laboratory, Berkeley, US (online)}{}{}{\href{https://indico.physics.lbl.gov/event/1192/overview/}{Dark-matter and Neutrino Computation Explored (DANCE) Machine Learning Workshop 2020}}
+
 \section{Schools}
 \cventry{2026.08}{\href{https://indico.slac.stanford.edu/event/10437/}{Quantum Probes for a Quantum Universe (54th SLAC Summer Institute)}}{SLAC National Accelerator Laboratory, Menlo Park, US}{}{}{}
 \cventry{2026.07}{\href{https://www.ibm.com/quantum/blog/qiskit-summer-school-2026}{Qiskit Global Summer School 2026: A Decade on the Cloud (\href{https://www.credly.com/badges/c0bf5f96-1cfb-4e36-a9dd-d69ff23da815}{Quantum Excellence Badge})}}{IBM Quantum (online)}{}{}{Completed hands-on quantum-circuit programming labs using Python and Qiskit}
-
-\section{Mentoring}
-\cventry{2025}{Khushi Vandra}{Columbia University}{}{NSF Research Experiences for Undergraduates (REU)}{S1 pulse shape discrimination in liquid xenon detectors}
-
-\section{Teaching}
-\cventry{2024}{Lecturer for XENONnT Computing Tutorial Series}{Online}{}{}{Delivered biweekly tutorials on HTC/HPC workflows and analysis computing for XENONnT researchers}
-\cventry{2022--2025}{Teaching Assistant}{Columbia University}{Six Semesters}{}{Intermediate Laboratory Work \newline Weekly lab sessions at E. K. A. advanced physics lab, covering topics in optics, quantum and particle physics}
-
-\section{Internships}
-\cventry{2024.07 \& 2026.01 \& 2026.07}{Visiting Researcher}{Laboratori Nazionali del Gran Sasso}{Assergi, Italy}{}{Operation and calibration shifts for XENONnT}
-\cventry{2021}{Undergraduate Researcher}{Columbia University}{}{Summer Undergraduate Research}{Data analysis on the XENON detector, including several signal selection criteria \newline Supervisor: Prof. Elena Aprile}
-
-\section{Outreach Activities}
-\cventry{2021--2026}{Open-source Projects Maintainer}{Columbia University}{}{}{Maintained open-source analysis tools, including appletree and alea, and supported their use across collaborations; appointed as a straxen maintainer in 2025}
-
-\section{Professional Services}
-\cventry{2024--now}{Journal Referee}{}{}{}{Journal of Instrumentation, Physical Review Applied}
 
 \section{References}
 \cventry{}{Elena Aprile}{Centennial Professor of Physics}{Columbia University}{}{Ph.D. advisor \& XENON Spokesperson, Email: \emaillink{ea18@columbia.edu}}
@@ -263,29 +297,5 @@
 \cventry{}{Luca Grandi}{Professor of Physics}{The University of Chicago}{}{XENON Collaborator, Email: \emaillink{lgrandi@uchicago.edu}}
 \cventry{}{Kaixuan Ni}{Professor of Physics}{University of California San Diego}{}{XENON Collaborator, Email: \emaillink{nikx@physics.ucsd.edu}}
 \cventry{}{Fei Gao}{Associate Professor of Physics}{Tsinghua University}{}{B.Eng. advisor, Email: \emaillink{feigao@mail.tsinghua.edu.cn}}
-
-% \clearpage
-\vspace{0.5em}
-\noindent\rule{\textwidth}{1.0pt}
-
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-\renewcommand{\refname}{Selected Publications}
-\nocite{*}
-\begin{center}
-\Large{For a complete publications list, please refer to my \href{https://inspirehep.net/authors/1862233}{INSPIRE profile}.}
-\end{center}
-\bibliographystyle{urldoi}
-\bibliography{publications}                        % Generated from the shared bibliography; do not edit publications.bib.
-
-% Publications from a BibTeX file using the multibib package
-%\section{Publications}
-%\nocitebook{book1,book2}
-%\bibliographystylebook{plain}
-%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
-%\nocitemisc{misc1,misc2,misc3}
-%\bibliographystylemisc{plain}
-%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
 
 \end{document}
