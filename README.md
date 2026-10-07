@@ -42,3 +42,49 @@ Original author: Xavier Danaux <xdanaux@gmail.com>
 Original repository: https://github.com/xdanaux/moderncv
 
 This repository is a fork aiming to maintain `moderncv` inside CTAN, since upstream has been dead since 2016.
+
+
+## Personal CV publications
+
+The English CV uses one maintained publication database:
+`../postdoc_application/Proposals/Publication_List/bibliography.bib`.
+Set `selected = {true}` on each paper that should appear in the CV and in the
+selected-publications group of the standalone publication list. The same field
+controls both lists. CV papers keep the order of the shared database.
+
+`publications.bib` is generated. Edit publication details, contribution roles,
+annotations, distinctions, and highlight links in the shared database only.
+The exporter keeps every field and the CV's `urldoi.bst` renders the metadata.
+
+From this directory, build the English CV as usual:
+
+```sh
+latexmk --lualatex english.tex
+```
+
+The local `.latexmkrc` refreshes the bibliography before checking whether the CV
+is up to date. It also tracks the shared database and exporter during `-pvc` runs.
+A missing or invalid database stops the CV build with an error.
+The example documents do not require the external database.
+
+To run from another directory, explicitly load the project configuration:
+
+```sh
+latexmk -r /path/to/moderncv/.latexmkrc -cd -lualatex /path/to/moderncv/english.tex
+```
+
+For another checkout layout, set `CV_PUBLICATIONS_SOURCE` to the shared `.bib`
+path. A relative value is resolved from the moderncv directory. If necessary,
+`CV_PUBLICATIONS_PYTHON` can specify the Python 3 executable; no additional Python
+packages are required.
+
+You can also refresh or check the generated file directly:
+
+```sh
+python3 scripts/sync_publications.py
+python3 scripts/sync_publications.py --check
+```
+
+The exporter accepts `--source` and `--output` for explicit paths. `--check` never
+writes files and exits with status 1 when the generated bibliography is out of date.
+Normal export leaves the file untouched when its contents are already correct.

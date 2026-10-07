@@ -1,4 +1,5 @@
-% latexmk -C && latexmk --lualatex english.tex
+% Build from this directory: latexmk --lualatex english.tex
+% The local .latexmkrc refreshes publications.bib from the shared source first.
 %% start of file `template.tex'.
 %% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com), 2020-2026 moderncv maintainers (github.com/moderncv).
 %
@@ -59,8 +60,7 @@
 
 % personal data
 \name{Dacheng}{Xu}
-% \title{\cjkfont 徐 大 成}                             % optional, remove / comment the line if not wanted
-\title{\cjkfont }                                    % optional, remove / comment the line if not wanted
+\title{\textcolor{white}{\cjkfont 徐 大 成}}          % optional, remove / comment the line if not wanted
 % \born{4 July 1776}                                 % optional, remove / comment the line if not wanted
 % \address{538 West 120th Street, Pupin Hall}{New York, NY 10027}{United States}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
 \phone[mobile]{+1~(646)~461~0213}                    % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
@@ -277,7 +277,7 @@
 \Large{For a complete publications list, please refer to my \href{https://inspirehep.net/authors/1862233}{INSPIRE profile}.}
 \end{center}
 \bibliographystyle{urldoi}
-\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+\bibliography{publications}                        % Generated from the shared bibliography; do not edit publications.bib.
 
 % Publications from a BibTeX file using the multibib package
 %\section{Publications}

@@ -16,3 +16,6 @@ template.pdf
 
 # release tarballs
 moderncv-*.tar.gz
+
+# Python publication-sync caches
+__pycache__/

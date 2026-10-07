@@ -1,17 +1,22 @@
 % BibTeX bibliography style `unsrt_doi'
 % Based on unsrt.bst (Version 0.99b, 8-Dec-10)
 % Modified to hyperlink paper titles to their DOI (or arXiv fallback).
+% Article entries also support contribution labels, highlights, and annotations.
 
 ENTRY
   { address
+    annotation
     archivePrefix
     author
     booktitle
     chapter
+    distinction
     doi
     edition
     editor
     eprint
+    highlight
+    highlight_name
     howpublished
     institution
     journal
@@ -22,7 +27,9 @@ ENTRY
     organization
     pages
     publisher
+    role
     school
+    selected
     series
     title
     type
@@ -41,7 +48,7 @@ FUNCTION {init.state.consts}
   #3 'after.block :=
 }
 
-STRINGS { s t }
+STRINGS { s t pub.labels pub.part }
 
 FUNCTION {output.nonnull}
 { 's :=
@@ -543,6 +550,65 @@ FUNCTION {format.incoll.inproc.crossref}
   " \cite{" * crossref * "}" *
 }
 
+% Append a nonempty article label, separating labels with commas.
+FUNCTION {append.pub.label}
+{ 'pub.part :=
+  pub.part empty$
+    'skip$
+    { pub.labels empty$
+        { pub.part 'pub.labels := }
+        { pub.labels ", " * pub.part * 'pub.labels := }
+      if$
+    }
+  if$
+}
+
+FUNCTION {format.pub.labels}
+{ "" 'pub.labels :=
+  role empty$
+    'skip$
+    { role append.pub.label }
+  if$
+  distinction empty$
+    'skip$
+    { distinction append.pub.label }
+  if$
+  highlight_name empty$
+    'skip$
+    { highlight empty$
+        { highlight_name }
+        { "\href{" highlight * "}{" * highlight_name * "}" * }
+      if$
+      append.pub.label
+    }
+  if$
+  pub.labels empty$
+    { "" }
+    { selected empty$
+        { pub.labels }
+        { selected "true" =
+            { "\textbf{" pub.labels * "}" * }
+            { pub.labels }
+          if$
+        }
+      if$
+    }
+  if$
+}
+
+% This runs after fin.entry, so annotations do not change citation punctuation.
+% Start the group before the citation paragraph ends to keep both paragraphs intact.
+FUNCTION {output.pub.annotation}
+{ annotation empty$
+    'skip$
+    { "\begingroup\interlinepenalty10000\par\nobreak\vspace{0.15em}\normalfont\small\noindent\textit{Main contribution:}\space " write$
+      annotation write$
+      "\par\endgroup" write$
+      newline$
+    }
+  if$
+}
+
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
@@ -559,8 +625,12 @@ FUNCTION {article}
     }
   if$
   new.block
-  note output
+  format.pub.labels duplicate$ empty$
+    { pop$ note output }
+    'output
+  if$
   fin.entry
+  output.pub.annotation
 }
 
 FUNCTION {book}
