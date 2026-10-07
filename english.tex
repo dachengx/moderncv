@@ -10,13 +10,20 @@
 
 \documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
-% Selected Publications always appears; this switch adds Other Publications.
+% Show or hide all publication sections.
+\newif\ifshowpublications
+\showpublicationstrue
+% \showpublicationsfalse
+
+% Add Other Publications when publication sections are shown.
 \newif\iffullpublications
 % \fullpublicationsfalse
 \fullpublicationstrue
-\iffullpublications
-  \usepackage[resetlabels]{multibib}
-  \newcites{cvother}{Other Publications}
+\ifshowpublications
+  \iffullpublications
+    \usepackage[resetlabels]{multibib}
+    \newcites{cvother}{Other Publications}
+  \fi
 \fi
 
 \usepackage{moderncviconsacademic}
@@ -219,6 +226,10 @@
 \cventry{2020.12}{NAOC Fellowship}{National Astronomy Observatory of China, Chinese Academy of Sciences}{}{}{Three winners per year in Tsinghua University, for students in the field of astronomy nationwide}
 \cventry{2020.12}{BOEING Scholarship}{Tsinghua University}{}{}{Excellent Comprehensive Scholarship of Tsinghua University}
 
+\section{Schools}
+\cventry{2026.08}{\href{https://indico.slac.stanford.edu/event/10437/}{Quantum Probes for a Quantum Universe (54th SLAC Summer Institute)}}{SLAC National Accelerator Laboratory, Menlo Park, US}{}{}{}
+\cventry{2026.07}{\href{https://www.ibm.com/quantum/blog/qiskit-summer-school-2026}{Qiskit Global Summer School 2026: A Decade on the Cloud (\href{https://www.credly.com/badges/c0bf5f96-1cfb-4e36-a9dd-d69ff23da815}{Quantum Excellence Badge})}}{IBM Quantum (online)}{}{}{Completed hands-on quantum-circuit programming labs using Python and Qiskit}
+
 \section{Teaching}
 \cventry{2024}{Lecturer for XENONnT Computing Tutorial Series}{Online}{}{}{Delivered biweekly tutorials on HTC/HPC workflows and analysis computing for XENONnT researchers}
 \cventry{2022--2025}{Teaching Assistant}{Columbia University}{Six Semesters}{}{Intermediate Laboratory Work \newline Weekly lab sessions at E. K. A. advanced physics lab, covering topics in optics, quantum and particle physics}
@@ -237,7 +248,8 @@
 \cventry{2021--2026}{Open-source Projects Maintainer}{Columbia University}{}{}{Maintained open-source analysis tools, including appletree and alea, and supported their use across collaborations; appointed as a straxen maintainer in 2025}
 
 % \clearpage
-% Selected Publications is always included; Other Publications is optional.
+\ifshowpublications
+% Selected Publications appears when enabled; Other Publications is optional.
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
 %  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
 \renewcommand{\refname}{Selected Publications}
@@ -250,6 +262,7 @@
   \nocitecvother{*}
   \bibliographystylecvother{urldoi}
   \bibliographycvother{publications-other}
+\fi
 \fi
 
 % Publications from a BibTeX file using the multibib package
@@ -286,10 +299,6 @@
 \cventry{2021.08}{Poster: \href{https://indico.ihep.ac.cn/event/10906/session/9/contribution/172/}{Accurate and Robust PMT Waveform Analysis}}{Shandong University, Qingdao, China (online)}{}{}{\href{https://indico.ihep.ac.cn/event/10906/}{The 13th Conference of High Energy Physics Branch of Chinese Physical Society}}
 \cventry{2021.06}{Poster: \href{https://indico.fnal.gov/event/44492/contributions/214287/}{Optimized PMT Waveform Analysis}}{University of Minnesota Twin Cities, Minneapolis, US (online)}{}{}{\href{https://indico.fnal.gov/event/44492/overview/}{The 28th International Workshop on Weak Interactions and Neutrinos (WIN2021)}}
 \cventry{2020.08}{Talk: \href{https://indico.physics.lbl.gov/event/1192/contributions/4960/}{PMT waveform analysis in neutrino experiments}}{Lawrence Berkeley National Laboratory, Berkeley, US (online)}{}{}{\href{https://indico.physics.lbl.gov/event/1192/overview/}{Dark-matter and Neutrino Computation Explored (DANCE) Machine Learning Workshop 2020}}
-
-\section{Schools}
-\cventry{2026.08}{\href{https://indico.slac.stanford.edu/event/10437/}{Quantum Probes for a Quantum Universe (54th SLAC Summer Institute)}}{SLAC National Accelerator Laboratory, Menlo Park, US}{}{}{}
-\cventry{2026.07}{\href{https://www.ibm.com/quantum/blog/qiskit-summer-school-2026}{Qiskit Global Summer School 2026: A Decade on the Cloud (\href{https://www.credly.com/badges/c0bf5f96-1cfb-4e36-a9dd-d69ff23da815}{Quantum Excellence Badge})}}{IBM Quantum (online)}{}{}{Completed hands-on quantum-circuit programming labs using Python and Qiskit}
 
 \section{References}
 \cventry{}{Elena Aprile}{Centennial Professor of Physics}{Columbia University}{}{Ph.D. advisor \& XENON Spokesperson, Email: \emaillink{ea18@columbia.edu}}

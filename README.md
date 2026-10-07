@@ -52,17 +52,23 @@ Set `selected = {true}` on each paper that should appear in the CV and in the
 selected-publications group of the standalone publication list. The same field
 controls both lists. Papers within each group keep the order of the shared database.
 
-Near the top of `english.tex`, set the publication switch:
+Near the top of `english.tex`, set the two publication switches. For example,
+to include Selected Publications only:
 
 ```latex
-\fullpublicationsfalse % Selected Publications only (default)
-% \fullpublicationstrue % Selected Publications followed by Other Publications
+\showpublicationstrue % Show publication sections
+% \showpublicationsfalse % Omit all publication sections
+
+\fullpublicationsfalse % Selected Publications only
+% \fullpublicationstrue % Also include Other Publications
 ```
 
-Use one of these settings at a time. Selected Publications always appears; the
-switch only controls whether Other Publications is added. Full mode includes
-every paper in the shared database, including preprints, and numbers each group
-from 1. Contribution annotations appear only for selected papers. Both publication
+Choose one setting for each switch. `\showpublicationsfalse` hides all publication
+sections, regardless of the other switch, for applications that require a separate
+publication list. With `\showpublicationstrue`, Selected Publications appears and
+`\fullpublicationstrue` adds Other Publications. Full mode includes every paper in
+the shared database, including preprints, and numbers each group from 1.
+Contribution annotations appear only for selected papers. Both publication
 headings use the same section style as the rest of the CV.
 
 `publications.bib` and `publications-other.bib` are generated. Edit publication details, contribution roles,
