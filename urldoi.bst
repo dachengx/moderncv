@@ -256,9 +256,7 @@ FUNCTION {format.title}
 FUNCTION {format.preprint}
 { eprint empty$
     { journal }
-    { "\href{https://arxiv.org/abs/" eprint *
-      "}{arXiv:" * eprint * "}" *
-    }
+    { "arXiv:" eprint * }
   if$
 }
 
@@ -626,6 +624,14 @@ FUNCTION {output.pub.annotation}
   if$
 }
 
+% Append the publisher to the last bibliographic field before contribution labels.
+FUNCTION {append.article.publisher}
+{ publisher empty$
+    'skip$
+    { "\cvpublisher{ (" * publisher * ")}" * }
+  if$
+}
+
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
@@ -647,6 +653,7 @@ FUNCTION {article}
       format.pages output
     }
   if$
+  append.article.publisher
   new.block
   format.pub.labels duplicate$ empty$
     { pop$ note output }
@@ -1037,6 +1044,7 @@ FUNCTION {begin.bib}
     { preamble$ write$ newline$ }
   if$
   "\providecommand{\cvpreprint}[1]{#1}" write$ newline$
+  "\providecommand{\cvpublisher}[1]{#1}" write$ newline$
   "\begin{thebibliography}{"  longest.label  * "}" * write$ newline$
 }
 

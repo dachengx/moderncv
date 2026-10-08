@@ -15,6 +15,12 @@
 \showpublicationstrue
 % \showpublicationsfalse
 
+% Show or hide article publishers in this document.
+\newif\ifshowpublishers
+\showpublishersfalse
+% \showpublisherstrue
+\newcommand{\cvpublisher}[1]{\ifshowpublishers#1\fi}
+
 % Exclude entries whose journal is preprint from both publication groups.
 \newif\ifexcludepreprints
 \excludepreprintsfalse

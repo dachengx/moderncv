@@ -59,6 +59,9 @@ to include Selected Publications only:
 \showpublicationstrue % Show publication sections
 % \showpublicationsfalse % Omit all publication sections
 
+\showpublisherstrue % Show publishers (default)
+% \showpublishersfalse % Hide publishers
+
 \excludepreprintsfalse % Keep preprints (default)
 % \excludepreprintstrue % Exclude entries with journal = {preprint}
 
@@ -82,6 +85,11 @@ headings use the same section style as the rest of the CV.
 `publications.bib` and `publications-other.bib` are generated. Edit publication details, contribution roles,
 annotations, distinctions, and highlight links in the shared database only.
 The exporter keeps every field and the CV's `urldoi.bst` renders the metadata.
+With `\showpublisherstrue`, article publishers appear in parentheses after the
+bibliographic details in both publication groups, before contribution labels.
+`\showpublishersfalse` hides them without removing the metadata. This setting is
+independent of the publisher switch in the standalone publication list.
+Entries without a publisher omit it.
 
 From this directory, build the English CV as usual:
 
