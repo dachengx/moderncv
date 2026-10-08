@@ -15,6 +15,12 @@
 \showpublicationstrue
 % \showpublicationsfalse
 
+% Exclude entries whose journal is preprint from both publication groups.
+\newif\ifexcludepreprints
+\excludepreprintsfalse
+% \excludepreprintstrue
+\newcommand{\cvpreprint}[1]{\ifexcludepreprints\else#1\fi}
+
 % Add Other Publications when publication sections are shown.
 \newif\iffullpublications
 % \fullpublicationsfalse

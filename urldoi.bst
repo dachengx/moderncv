@@ -1036,6 +1036,7 @@ FUNCTION {begin.bib}
     'skip$
     { preamble$ write$ newline$ }
   if$
+  "\providecommand{\cvpreprint}[1]{#1}" write$ newline$
   "\begin{thebibliography}{"  longest.label  * "}" * write$ newline$
 }
 
@@ -1043,7 +1044,19 @@ EXECUTE {begin.bib}
 
 EXECUTE {init.state.consts}
 
-ITERATE {call.type$}
+% Wrap the complete preprint entry, including any contribution annotation.
+% LaTeX decides whether to execute its bibitem, keeping visible labels consecutive.
+FUNCTION {output.publication}
+{ journal field.or.null "l" change.case$ "preprint" =
+    { "\cvpreprint{" write$ newline$
+      call.type$
+      "}" write$ newline$
+    }
+    'call.type$
+  if$
+}
+
+ITERATE {output.publication}
 
 FUNCTION {end.bib}
 { newline$
