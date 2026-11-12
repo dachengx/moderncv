@@ -25,7 +25,28 @@
 \newif\ifexcludepreprints
 \excludepreprintsfalse
 % \excludepreprintstrue
-\newcommand{\cvpreprint}[1]{\ifexcludepreprints\else#1\fi}
+
+% Put preprints after refereed papers within each publication group.
+\newif\ifrefereedfirst
+\refereedfirstfalse
+% \refereedfirsttrue
+
+% urldoi.bst passes the complete preprint item to this command.
+% The bibliography environment keeps its queued items local to each group.
+\newcommand{\cvqueuedpreprints}{}
+\newcommand{\cvpreprint}[1]{%
+  \ifexcludepreprints
+  \else
+    \ifrefereedfirst
+      \appto{\cvqueuedpreprints}{#1}%
+    \else
+      #1%
+    \fi
+  \fi
+}
+\ifrefereedfirst
+  \AddToHook{env/thebibliography/end}{\cvqueuedpreprints}
+\fi
 
 % Add Other Publications when publication sections are shown.
 \newif\iffullpublications
