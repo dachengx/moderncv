@@ -611,9 +611,9 @@ FUNCTION {output.pub.annotation}
     { selected "true" =
         { annotation empty$
             'skip$
-            { "\begingroup\interlinepenalty10000\par\nobreak\vspace{0.15em}\normalfont\small\noindent\textit{Main contribution:}\space " write$
+            { "\cvpublicationdetails{\begingroup\interlinepenalty10000\par\nobreak\vspace{0.15em}\normalfont\small\noindent\textit{Main contribution:}\space " write$
               annotation write$
-              "\par\endgroup" write$
+              "\par\endgroup}" write$
               newline$
             }
           if$
@@ -654,12 +654,13 @@ FUNCTION {article}
     }
   if$
   append.article.publisher
-  new.block
   format.pub.labels duplicate$ empty$
-    { pop$ note output }
-    'output
+    { pop$ new.block note output fin.entry }
+    { 'pub.labels :=
+      fin.entry
+      "\cvpublicationdetails{\newblock " pub.labels add.period$ * "}" * write$ newline$
+    }
   if$
-  fin.entry
   output.pub.annotation
 }
 
@@ -1045,6 +1046,7 @@ FUNCTION {begin.bib}
   if$
   "\providecommand{\cvpreprint}[1]{#1}" write$ newline$
   "\providecommand{\cvpublisher}[1]{#1}" write$ newline$
+  "\providecommand{\cvpublicationdetails}[1]{#1}" write$ newline$
   "\begin{thebibliography}{"  longest.label  * "}" * write$ newline$
 }
 

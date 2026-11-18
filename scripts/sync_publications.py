@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Export selected or other publication records without rewriting their BibTeX.
+"""Export selected, other, or all publication records without rewriting their BibTeX.
 
 The supported syntax is ordinary brace/parenthesis records, brace/quote values,
 numbers, and string macros joined with #. String and preamble declarations are
-retained in source order; preambles go in the selected group so full mode
-executes them only once. Comments outside records and @comment are omitted.
+retained in source order; preambles go in the selected and all exports so each
+display mode executes them only once. Comments outside records and @comment are omitted.
 """
 
 from __future__ import annotations
@@ -231,7 +231,7 @@ def resolve(expression: tuple[Term, ...], macros: dict[str, str]) -> str:
 
 
 def build_output(text: str, source_reference: str, selection: str = "selected") -> tuple[bytes, int]:
-    if selection not in {"selected", "other"}:
+    if selection not in {"selected", "other", "all"}:
         raise BibliographyError(f"unknown publication selection {selection!r}")
     records = Parser(text).parse()  # Validate all records before preparing output.
     macros = MONTHS.copy()
@@ -241,7 +241,7 @@ def build_output(text: str, source_reference: str, selection: str = "selected") 
         if record.kind == "string":
             macros[record.key] = resolve(record.expression, macros)
             output.append(record.raw)
-        elif record.kind == "preamble" and selection == "selected":
+        elif record.kind == "preamble" and selection in {"selected", "all"}:
             output.append(record.raw)
         elif record.fields is not None:
             selected = False
@@ -250,7 +250,7 @@ def build_output(text: str, source_reference: str, selection: str = "selected") 
                     selected = resolve(record.fields["selected"], macros) == "true"
                 except BibliographyError as error:
                     raise BibliographyError(f"selected in {record.key!r}: {error}") from error
-            if selected == (selection == "selected"):
+            if selection == "all" or selected == (selection == "selected"):
                 output.append(record.raw)
                 count += 1
     if count == 0 and selection == "selected":
@@ -284,12 +284,16 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=repository.parent / "postdoc_application" / "Proposals" / "Publication_List" / "bibliography.bib")
     parser.add_argument("--output", type=Path, help="output path (defaults to the chosen publication group)")
-    parser.add_argument("--selection", choices=("selected", "other"), default="selected",
+    parser.add_argument("--selection", choices=("selected", "other", "all"), default="selected",
                         help="publication group to export (default: selected)")
     parser.add_argument("--check", action="store_true", help="check whether the output is current without writing it")
     args = parser.parse_args(argv)
     source = args.source.resolve()
-    default_output = "publications.bib" if args.selection == "selected" else "publications-other.bib"
+    default_output = {
+        "selected": "publications.bib",
+        "other": "publications-other.bib",
+        "all": "publications-all.bib",
+    }[args.selection]
     output = (args.output or repository / default_output).resolve()
     try:
         if source == output:

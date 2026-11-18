@@ -48,9 +48,9 @@ This repository is a fork aiming to maintain `moderncv` inside CTAN, since upstr
 
 The English CV uses one maintained publication database:
 `../postdoc_application/Proposals/Publication_List/bibliography.bib`.
-Set `selected = {true}` on each paper that should appear in the CV and in the
-selected-publications group of the standalone publication list. The same field
-controls both lists. Papers within each group keep the order of the shared database.
+Set `selected = {true}` on each paper that should appear in the selected-publications
+group when either document uses split mode. The same field controls both lists.
+Papers keep the order of the shared database, within each group in split mode.
 
 Near the top of `english.tex`, set the publication switches. For example,
 to include Selected Publications only:
@@ -58,6 +58,9 @@ to include Selected Publications only:
 ```latex
 \showpublicationstrue % Show publication sections
 % \showpublicationsfalse % Omit all publication sections
+
+\splitpublicationstrue % Separate Selected/Other groups and show contribution details
+% \splitpublicationsfalse % One plain Publications list containing all papers (default)
 
 \showpublisherstrue % Show publishers (default)
 % \showpublishersfalse % Hide publishers
@@ -71,18 +74,22 @@ to include Selected Publications only:
 
 Choose one setting for each switch. `\showpublicationsfalse` hides all publication
 sections, regardless of the other switches, for applications that require a separate
-publication list. With `\showpublicationstrue`, Selected Publications appears and
-`\fullpublicationstrue` adds Other Publications. By default, full mode includes every paper in
-the shared database and numbers each group from 1. `\excludepreprintstrue`
+publication list. With `\splitpublicationsfalse` (the default), all papers appear
+under Publications in shared-database order with continuous numbering; author roles,
+distinctions, highlights, and contribution annotations are hidden. In this mode,
+`\fullpublications` is ignored. With `\splitpublicationstrue`, Selected Publications
+appears and `\fullpublicationstrue` adds Other Publications, numbering each group
+from 1. The standalone publication list uses the same split switch independently.
+`\excludepreprintstrue`
 excludes entries whose `journal` field is `preprint` from both groups; matching is
 case insensitive. `\excludepreprintsfalse` keeps them. Entries with an arXiv
 identifier and a different journal are retained. Filtering changes only the
 rendered CV, leaving the shared database and generated bibliography files intact.
 Visible entries keep consecutive numbering within each group.
-Contribution annotations appear only for selected papers. Both publication
+Contribution annotations appear only for selected papers in split mode. All publication
 headings use the same section style as the rest of the CV.
 
-`publications.bib` and `publications-other.bib` are generated. Edit publication details, contribution roles,
+`publications.bib`, `publications-other.bib`, and `publications-all.bib` are generated. Edit publication details, contribution roles,
 annotations, distinctions, and highlight links in the shared database only.
 The exporter keeps every field and the CV's `urldoi.bst` renders the metadata.
 With `\showpublisherstrue`, article publishers appear in parentheses after the
@@ -97,7 +104,7 @@ From this directory, build the English CV as usual:
 latexmk --lualatex english.tex
 ```
 
-The local `.latexmkrc` refreshes both bibliography files before checking whether the CV
+The local `.latexmkrc` refreshes all three bibliography files before checking whether the CV
 is up to date. It also tracks the shared database and exporter during `-pvc` runs.
 A missing or invalid database stops the CV build with an error.
 The example documents do not require the external database.
@@ -119,9 +126,10 @@ You can also refresh or check the generated file directly:
 python3 scripts/sync_publications.py
 python3 scripts/sync_publications.py --check
 python3 scripts/sync_publications.py --selection other --output publications-other.bib
+python3 scripts/sync_publications.py --selection all
 ```
 
 The exporter accepts `--source` and `--output` for explicit paths, and
-`--selection selected|other` to choose the group (selected by default). `--check` never
+`--selection selected|other|all` to choose the export (selected by default). `--check` never
 writes files and exits with status 1 when the generated bibliography is out of date.
 Normal export leaves the file untouched when its contents are already correct.

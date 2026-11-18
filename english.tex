@@ -15,6 +15,13 @@
 \showpublicationstrue
 % \showpublicationsfalse
 
+% Split Selected/Other Publications and show contribution details, or merge
+% all papers into one plain Publications list with continuous numbering.
+\newif\ifsplitpublications
+\splitpublicationstrue
+% \splitpublicationsfalse
+\newcommand{\cvpublicationdetails}[1]{\ifsplitpublications#1\fi}
+
 % Show or hide article publishers in this document.
 \newif\ifshowpublishers
 \showpublishersfalse
@@ -48,14 +55,16 @@
   \AddToHook{env/thebibliography/end}{\cvqueuedpreprints}
 \fi
 
-% Add Other Publications when publication sections are shown.
+% Add Other Publications in split mode; ignored in merged mode.
 \newif\iffullpublications
 % \fullpublicationsfalse
 \fullpublicationstrue
 \ifshowpublications
-  \iffullpublications
-    \usepackage[resetlabels]{multibib}
-    \newcites{cvother}{Other Publications}
+  \ifsplitpublications
+    \iffullpublications
+      \usepackage[resetlabels]{multibib}
+      \newcites{cvother}{Other Publications}
+    \fi
   \fi
 \fi
 
@@ -298,19 +307,25 @@ Contributed to concept development, scriptwriting, physics explanations, animati
 
 % \clearpage
 \ifshowpublications
-% Selected Publications appears when enabled; Other Publications is optional.
+% Split mode shows selected papers and optionally other papers; merged mode
+% shows all papers without contribution details.
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
 %  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-\renewcommand{\refname}{Selected Publications}
 \nocite{*}
 % Keep publication headings at the same level as the other CV sections.
 \renewcommand*{\bibliographyhead}[1]{\section{#1}}
 \bibliographystyle{urldoi}
-\bibliography{publications}                        % Generated from the shared bibliography; do not edit publications.bib.
-\iffullpublications
-  \nocitecvother{*}
-  \bibliographystylecvother{urldoi}
-  \bibliographycvother{publications-other}
+\ifsplitpublications
+  \renewcommand{\refname}{Selected Publications}
+  \bibliography{publications}                      % Generated from the shared bibliography; do not edit.
+  \iffullpublications
+    \nocitecvother{*}
+    \bibliographystylecvother{urldoi}
+    \bibliographycvother{publications-other}
+  \fi
+\else
+  \renewcommand{\refname}{Publications}
+  \bibliography{publications-all}                  % All papers in shared-database order.
 \fi
 \fi
 
